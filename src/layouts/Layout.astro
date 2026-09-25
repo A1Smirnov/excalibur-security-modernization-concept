@@ -1,0 +1,22 @@
+---
+import '../styles/global.css';
+import '@fontsource-variable/inter';
+import Mark from '../components/Mark.astro';
+interface Props { title: string; description?: string }
+const {title, description = 'An independent redesign concept for Excalibur Security. Explore property security, patrols, event security, and personal protection.'} = Astro.props;
+---
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content={description}/><meta name="robots" content="noindex, nofollow"/><meta name="theme-color" content="#191c1e"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><title>{title} | Excalibur Security Concept</title></head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="concept-bar"><span>INDEPENDENT REDESIGN CONCEPT</span><span>Portfolio demonstration · Not the official website</span></div>
+  <header class="site-header"><div class="container header-inner">
+    <a href="/" class="brand" aria-label="Excalibur Security home"><Mark/><span>EXCALIBUR<small>SECURITY</small></span></a>
+    <nav class="desktop-nav" aria-label="Main navigation"><a href="/#services">Services</a><a href="/#industries">Industries</a><a href="/#approach">Our approach</a></nav>
+    <a class="button header-cta" href="/contact/">Let’s talk <span aria-hidden="true">↗</span></a>
+    <details class="mobile-menu"><summary>Menu <span aria-hidden="true">＋</span></summary><nav aria-label="Mobile navigation"><a href="/#services">Services</a><a href="/#industries">Industries</a><a href="/#approach">Our approach</a><a href="/contact/">Let’s talk ↗</a></nav></details>
+  </div></header>
+  <main id="main"><slot/></main>
+  <footer><div class="container footer-top"><a href="/" class="brand"><Mark/><span>EXCALIBUR<small>SECURITY</small></span></a><p>Thoughtful protection.<br/>A stronger sense of security.</p><div><a href="/#services">Explore services ↗</a><a href="/contact/">Try the consultation form ↗</a></div></div><div class="container footer-bottom"><span>© {new Date().getFullYear()} Independent portfolio concept</span><span>No affiliation or endorsement implied.</span><a href="https://www.excalibur-security.com/" target="_blank" rel="noopener noreferrer">Visit the official website ↗</a></div></footer>
+  <script>document.querySelectorAll('.mobile-menu a').forEach(link => link.addEventListener('click', () => document.querySelector('.mobile-menu')?.removeAttribute('open')));</script>
+</body></html>

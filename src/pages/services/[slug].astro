@@ -1,0 +1,7 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { services } from '../../data/services';
+export function getStaticPaths() { return services.map(service => ({ params: { slug: service.slug }, props: { service } })); }
+const {service} = Astro.props;
+---
+<Layout title={service.title}><section class="service-hero"><div class="container"><a class="back-link" href="/#services">← All services</a><p class="eyebrow">SECURITY SERVICES / {service.number}</p><h1>{service.title}<span class="red-dot">.</span></h1><p class="lead">{service.short}</p></div></section><section class="section container detail-grid"><div><p class="eyebrow red">BUILT AROUND YOUR NEEDS</p><h2>Start with the<br/>right questions.</h2><p class="lead">{service.description}</p><a class="button" href={`/contact/?service=${service.slug}`}>Discuss your needs <span aria-hidden="true">↗</span></a></div><div class="detail-panel"><h3>Topics to explore</h3><ul>{service.items.map((item,i)=><li><span>0{i+1}</span>{item}</li>)}</ul><p>Illustrative service content for this redesign concept. Scope and availability should be confirmed directly with the company.</p></div></section></Layout>
