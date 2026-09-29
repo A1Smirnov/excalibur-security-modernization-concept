@@ -13,7 +13,11 @@ The concept focuses on a low-risk migration from a legacy WordPress presentation
 
 ---
 
-## Preview
+## Live Demo
+
+**[View the live concept →](https://excalibur-security-modernization-concept.avsmirnov.workers.dev)**
+
+The prototype is deployed on Cloudflare Workers and represents an independent modernization concept for Excalibur Security's public-facing website.
 
 ### Desktop
 
